@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>测试</title>
+    <title>测试测试</title>
     <link href="/2020/05/05/test/"/>
     <url>/2020/05/05/test/</url>
     
-    <content type="html"><![CDATA[<h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><pre><code class="hljs bash">hexo new <span class="hljs-string">"test"</span></code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><div class="hljs"><pre><code class="hljs bash">hexo new <span class="hljs-string">"test"</span></code></pre></div>]]></content>
     
     
     
