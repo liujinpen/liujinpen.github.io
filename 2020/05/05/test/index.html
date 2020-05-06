@@ -38,6 +38,8 @@
 
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.6.2/gitalk.css" />
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
@@ -243,15 +245,34 @@
               <div class="comments" id="comments">
                 
                 
-  <script defer src="https://utteranc.es/client.js"
-          repo="liujinpen.github.io"
-          issue-term="pathname"
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
   
-          label="utterances"
-    
-          theme="github-light"
-          crossorigin="anonymous"
-  >
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+  <script type="text/javascript">
+    var oldLoadGt = window.onload;
+    window.onload = function () {
+      oldLoadGt && oldLoadGt();
+
+      var gitalk = new Gitalk({
+        clientID: 'e042e0769b9192098e29',
+        clientSecret: '2e73b1c347c9a0e862d67abd93c247c22931b14c',
+        repo: 'blog-comments',
+        owner: 'liujinpen',
+        admin: 'liujinpen',
+        // id: md5(location.pathname),
+        id: md5(location.pathname),
+        language: 'zh-CN',
+        // perPage: 15,
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: 'true',
+        distractionFreeMode: 'false'
+      });
+      gitalk.render('gitalk-container')
+    }
   </script>
 
 
