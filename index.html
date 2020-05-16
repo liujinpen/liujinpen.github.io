@@ -131,8 +131,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/earth.jpg') no-repeat center center;
+    <div class="view intro-2" id="background" parallax=true style="background: url('/img/earth.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
@@ -145,9 +144,9 @@
           </div>
 
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+          <div class="scroll-down-bar">
+            <i class="iconfont icon-arrowdown"></i>
+          </div>
           
         </div>
       </div>
@@ -156,43 +155,52 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+    <div class="container nopadding-md">
+      <div class="py-5" id="board" style=margin-top:0>
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-10 m-auto">
+              
 
 
   <div class="row mx-auto index-card">
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/05/05/test/">测试测试</a>
+      <a class="index-header" href="/2020/05/16/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">乱码问题</a>
 
-      <a href="/2020/05/05/test/" class="index-excerpt">
+      <a href="/2020/05/16/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="index-excerpt">
         
         
           
         
-        <div>测试一下hexo new "test"
-</div>
+        <div>今天在SSH框架做一个分页查询时，发现JSP页面用a标签传值有乱码问题于是用了之前的解决方法：
+s=new String(searchText.getBytes(StandardCharsets.ISO_8859_1),StandardCharsets.UTF_8)
+结果更不对了，仔细检查发现，在跳向action的时候，第一次是表单的post方式，对于post方法，tomcat的默认编码是UTF-</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-05
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-16
           </div>
         
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Bugs/">Bugs</a>
+            
+              <a href="/categories/Bugs/Web%E5%BC%80%E5%8F%91/">Web开发</a>
+            
+          </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/test/">test</a>
+              <a href="/tags/JSP/">JSP</a>
             
           </div>
         
@@ -231,22 +239,22 @@ Quick</div>
 
 
 
-              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     
   </main>
 
   
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
+  <a id="scroll-top-button" href="#" role="button">
+    <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+  </a>
   
 
   
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+  <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -380,6 +388,11 @@ Quick</div>
 
 
 
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+  <script type="text/javascript" src="/js/fireworks.js"></script>
+
 
 </body>
+
 </html>

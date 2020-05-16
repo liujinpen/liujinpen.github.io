@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>测试测试 - Hexo</title>
+  <title>乱码问题 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -131,8 +131,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/earth.jpg') no-repeat center center;
+    <div class="view intro-2" id="background" parallax=true style="background: url('/img/earth.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
@@ -142,37 +141,37 @@
             </span>
 
             
+            
+            <div class="mt-3 post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2020-05-16 11:25">
+                2020年5月16日 上午
+              </time>
+            </div>
+            
+
+            <div class="mt-1">
               
-                <div class="mt-3 post-meta">
-                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-05 09:34">
-                    2020年5月5日 上午
-                  </time>
-                </div>
+              
+              <span class="post-meta mr-2">
+                <i class="iconfont icon-chart"></i>
+                202 字
+              </span>
               
 
-              <div class="mt-1">
+              
+              
+              <span class="post-meta mr-2">
+                <i class="iconfont icon-clock-fill"></i>
                 
-                  
-                  <span class="post-meta mr-2">
-                    <i class="iconfont icon-chart"></i>
-                    7 字
-                  </span>
                 
+                2
+                 分钟
+              </span>
+              
 
-                
-                  
-                  <span class="post-meta mr-2">
-                      <i class="iconfont icon-clock-fill"></i>
-                    
-                    
-                    1
-                     分钟
-                  </span>
-                
-
-                
-              </div>
+              
+            </div>
             
           </div>
 
@@ -184,7 +183,7 @@
 
   <main>
     
-      
+    
 
 <div class="container-fluid">
   <div class="row">
@@ -196,23 +195,37 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><div class="hljs"><pre><code class="hljs bash">hexo new <span class="hljs-string">"test"</span></code></pre></div>
+              <p>今天在SSH框架做一个分页查询时，发现JSP页面用a标签传值有乱码问题<br>于是用了之前的解决方法：</p>
+<div class="hljs"><pre><code class="hljs java">s=<span class="hljs-keyword">new</span> String(searchText.getBytes(StandardCharsets.ISO_8859_1),StandardCharsets.UTF_8)</code></pre></div>
+<p>结果更不对了，仔细检查发现，在跳向action的时候，第一次是表单的post方式，对于post方法，<br>tomcat的默认编码是UTF-8，所以后端接收中文没有问题<br>当点击下一页的时候，用的是get方法，tomcat会查找server.xml文件中Connector元素中的参数URIEncoding的值,<br>进行对URI进行encoding，如果没有这个值，将用iso-8859-1进行encoding，<br>这样所产生了一个无法同时解决post和get的提交编码的问题。</p>
+<hr>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>修改tomcat的server.xml文件，在Connector标签下加入URIEncoding=“UTF-8”<br><img src="https://cdn.jsdelivr.net/gh/liujinpen/blogImage@master/img/20200516135003.png" srcset="/img/loading.gif" alt=""></p>
+<p><a href="https://www.cnblogs.com/lbj-utopia/p/4214201.html" target="_blank" rel="noopener">参考链接</a></p>
 
             </article>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Bugs/">Bugs</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Bugs/Web%E5%BC%80%E5%8F%91/">Web开发</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/test/">test</a>
+                      <a class="hover-with-bg" href="/tags/JSP/">JSP</a>
                     
                   </div>
                 
@@ -301,13 +314,13 @@
   </main>
 
   
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
+  <a id="scroll-top-button" href="#" role="button">
+    <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+  </a>
   
 
   
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+  <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -407,7 +420,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "测试测试&nbsp;",
+        "乱码问题&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -483,6 +496,11 @@
 
 
 
+  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+  <script type="text/javascript" src="/js/fireworks.js"></script>
+
 
 </body>
+
 </html>
