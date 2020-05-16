@@ -155,7 +155,7 @@
               
               <span class="post-meta mr-2">
                 <i class="iconfont icon-chart"></i>
-                202 字
+                201 字
               </span>
               
 
@@ -195,14 +195,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 小时前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <article class="markdown-body">
               <p>今天在SSH框架做一个分页查询时，发现JSP页面用a标签传值有乱码问题<br>于是用了之前的解决方法：</p>
 <div class="hljs"><pre><code class="hljs java">s=<span class="hljs-keyword">new</span> String(searchText.getBytes(StandardCharsets.ISO_8859_1),StandardCharsets.UTF_8)</code></pre></div>
-<p>结果更不对了，仔细检查发现，在跳向action的时候，第一次是表单的post方式，对于post方法，<br>tomcat的默认编码是UTF-8，所以后端接收中文没有问题<br>当点击下一页的时候，用的是get方法，tomcat会查找server.xml文件中Connector元素中的参数URIEncoding的值,<br>进行对URI进行encoding，如果没有这个值，将用iso-8859-1进行encoding，<br>这样所产生了一个无法同时解决post和get的提交编码的问题。</p>
+<p>结果更不对了，仔细检查发现，在跳向action的时候，第一次是表单的post方式，对于post方法，tomcat的默认编码是UTF-8，所以后端接收中文没有问题。<br>当点击下一页的时候，用的是get方法，tomcat会查找server.xml文件中Connector元素中的参数URIEncoding的值,进行对URI进行encoding，如果没有这个值，将用iso-8859-1进行encoding，这样就产生了一个无法同时解决post和get提交编码的问题。</p>
 <hr>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>修改tomcat的server.xml文件，在Connector标签下加入URIEncoding=“UTF-8”<br><img src="https://cdn.jsdelivr.net/gh/liujinpen/blogImage@master/img/20200516135003.png" srcset="/blog/img/loading.gif" alt=""></p>
 <p><a href="https://www.cnblogs.com/lbj-utopia/p/4214201.html" target="_blank" rel="noopener">参考链接</a></p>
